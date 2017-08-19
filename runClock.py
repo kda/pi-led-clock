@@ -40,7 +40,7 @@ def allOff(strip):
 
 def singleLight(strip, index, color):
     strip.setPixelColor(index, color)
-    strip.show()
+    #strip.show()
 
 
 blackAndWhite = [C_BLACK, C_WHITE]
@@ -56,8 +56,10 @@ roygbiv = [
     C_WHITE,
     ]
 blackAndRed = [C_BLACK, C_RED]
+blackAndGreen = [C_BLACK, C_GREEN]
 
 colorRange = blackAndRed
+hourColorRange = blackAndGreen
 
 pixels = [
         [36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47],
@@ -109,10 +111,10 @@ def displayHour(timeStruct):
     primary = hour % 12
     secondary = (hour + 1) % 12
     #print primary, secondary
-    colorRangeReverse = list(colorRange)
+    colorRangeReverse = list(hourColorRange)
     colorRangeReverse.reverse()
     primaryColor = selectColor(colorRangeReverse, minute, 60)
-    secondaryColor = selectColor(colorRange, minute, 60)
+    secondaryColor = selectColor(hourColorRange, minute, 60)
     print "displayHour primary:", primary
     displayShortHand(primary, primaryColor)
     print "displayHour secondary:", secondary
